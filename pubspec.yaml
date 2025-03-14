@@ -1,0 +1,19 @@
+name: remote
+description: Example of fetching remote widgets for RFW
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.4.0
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  path: ^1.8.0
+  path_provider: ^2.0.2
+  rfw:
+  divkit:
+
+flutter:
+  uses-material-design: true
