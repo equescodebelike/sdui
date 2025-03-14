@@ -6,10 +6,10 @@
 
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
+import 'package:remote/div.dart';
 import 'package:rfw/formats.dart';
 import 'package:rfw/rfw.dart';
 
@@ -17,17 +17,17 @@ const String urlPrefix =
     'https://raw.githubusercontent.com/flutter/packages/main/packages/rfw/example/remote/remote_widget_libraries';
 
 void main() {
-  runApp(const MaterialApp(home: Example()));
+  runApp(const MaterialApp(home: RfwPage()));
 }
 
-class Example extends StatefulWidget {
-  const Example({super.key});
+class RfwPage extends StatefulWidget {
+  const RfwPage({super.key});
 
   @override
-  State<Example> createState() => _ExampleState();
+  State<RfwPage> createState() => _RfwPageState();
 }
 
-class _ExampleState extends State<Example> {
+class _RfwPageState extends State<RfwPage> {
   final Runtime _runtime = Runtime();
   final DynamicContent _data = DynamicContent();
 
@@ -231,7 +231,11 @@ widget root = CustomScaffold(
               title: const Text('Подробнее'),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return DivKitPage();
+                  },
+                )),
               ),
             ),
             body: source.child(['body']),
